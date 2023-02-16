@@ -1,4 +1,4 @@
-#N canvas 241 51 1437 965 10;
+#N canvas 241 960 1437 965 10;
 #X obj 133 42 bng 50 250 50 0 empty empty start 53 7 0 10 #00fc04 #000000 #000000;
 #X obj 65 42 loadbang;
 #X obj 123 322 r oscmsg;
@@ -75,6 +75,7 @@
 #X obj 1139 57 inlet;
 #X obj 1151 83 inlet;
 #X msg 63 271 connect 192.168.2.134 14000;
+#X obj 831 86 inlet;
 #X connect 0 0 40 0;
 #X connect 1 0 40 0;
 #X connect 2 0 3 0;
@@ -166,3 +167,4 @@
 #X connect 73 0 45 0;
 #X connect 74 0 48 0;
 #X connect 75 0 4 0;
+#X connect 76 0 39 0;
