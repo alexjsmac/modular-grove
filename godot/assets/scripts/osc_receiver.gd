@@ -2,11 +2,13 @@ extends Node
 
 var oscrcv
 var cube
+var cube_2
 var sky
 
 func _ready():
 	
 	cube = get_node( "../cube" )
+	cube_2 = get_node("../cube2")
 	sky = get_node( "../env" ).get_environment().background_sky
 	print( sky )
 	oscrcv = load("res://addons/gdosc/gdoscreceiver.gdns").new()
@@ -23,14 +25,16 @@ func _process(delta):
 		var args = msg["args"]
 		if msg["address"] == "/cube/pos" and cube != null:
 			cube.translation = Vector3( args[0], args[1], args[2] )
+		elif msg["address"] == "/cube2/pos" and cube_2 != null:
+			cube_2.translation = Vector3( args[0], args[1], args[2] )
 		elif msg["address"] == "/cube/col" and cube != null:
 			cube.get_surface_material(0).albedo_color = Color( args[0], args[1], args[2] )
 		elif msg["address"] == "/cube/visible" and cube != null:
 			cube.visible = args[0]
-		elif msg["address"] == "/sky/horizon" and sky != null:
-			var c = Color( args[0], args[1], args[2] )
-			sky.sky_horizon_color = c
-			sky.ground_horizon_color = c
+#		elif msg["address"] == "/sky/horizon" and sky != null:
+#			var c = Color( args[0], args[1], args[2] )
+#			sky.sky_horizon_color = c
+#			sky.ground_horizon_color = c
 		else:
 			print( msg["address"] + "?" )
 	

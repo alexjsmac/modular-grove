@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/download.png-d82ce0bfbd732cdc63e67abc4078e815.s3tc.stex"
-path.etc="res://.import/download.png-d82ce0bfbd732cdc63e67abc4078e815.etc.stex"
+path.s3tc="res://.import/Default_1m x 1m.png-9b87e755c9c308959b7a85ca300546b8.s3tc.stex"
+path.etc="res://.import/Default_1m x 1m.png-9b87e755c9c308959b7a85ca300546b8.etc.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/download.png"
-dest_files=[ "res://.import/download.png-d82ce0bfbd732cdc63e67abc4078e815.s3tc.stex", "res://.import/download.png-d82ce0bfbd732cdc63e67abc4078e815.etc.stex" ]
+source_file="res://assets/wahooney.itch.io/Default_1m x 1m.png"
+dest_files=[ "res://.import/Default_1m x 1m.png-9b87e755c9c308959b7a85ca300546b8.s3tc.stex", "res://.import/Default_1m x 1m.png-9b87e755c9c308959b7a85ca300546b8.etc.stex" ]
 
 [params]
 

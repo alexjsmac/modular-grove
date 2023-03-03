@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Name_1m x 1m.png-f3200c0f20c3fc76441c2d190087a878.s3tc.stex"
-path.etc="res://.import/Name_1m x 1m.png-f3200c0f20c3fc76441c2d190087a878.etc.stex"
+path.s3tc="res://.import/foliage.png-fa307753c7b6a765dd49bd7359b384dd.s3tc.stex"
+path.etc="res://.import/foliage.png-fa307753c7b6a765dd49bd7359b384dd.etc.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/Name_1m x 1m.png"
-dest_files=[ "res://.import/Name_1m x 1m.png-f3200c0f20c3fc76441c2d190087a878.s3tc.stex", "res://.import/Name_1m x 1m.png-f3200c0f20c3fc76441c2d190087a878.etc.stex" ]
+source_file="res://assets/images/foliage.png"
+dest_files=[ "res://.import/foliage.png-fa307753c7b6a765dd49bd7359b384dd.s3tc.stex", "res://.import/foliage.png-fa307753c7b6a765dd49bd7359b384dd.etc.stex" ]
 
 [params]
 

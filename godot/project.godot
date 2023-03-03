@@ -363,7 +363,7 @@ _global_script_class_icons={
 [application]
 
 config/name="VR Project"
-run/main_scene="res://Spatial.tscn"
+run/main_scene="res://scenes/Spatial.tscn"
 config/icon="res://icon.png"
 
 [autoload]
