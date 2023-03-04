@@ -1,4 +1,4 @@
-#N canvas 241 960 1437 965 10;
+#N canvas 241 118 1437 965 10;
 #X obj 133 42 bng 50 250 50 0 empty empty start 53 7 0 10 #00fc04 #000000 #000000;
 #X obj 65 42 loadbang;
 #X obj 123 322 r oscmsg;
@@ -76,6 +76,8 @@
 #X obj 1151 83 inlet;
 #X msg 63 271 connect 192.168.2.134 14000;
 #X obj 831 86 inlet;
+#X obj 327 503 s oscmsg;
+#X msg 326 478 send /cube2/pos \$1 \$2 \$3;
 #X connect 0 0 40 0;
 #X connect 1 0 40 0;
 #X connect 2 0 3 0;
@@ -88,6 +90,7 @@
 #X connect 8 0 11 0;
 #X connect 8 0 15 0;
 #X connect 9 0 20 0;
+#X connect 9 0 78 0;
 #X connect 11 0 14 0;
 #X connect 12 0 16 0;
 #X connect 12 1 17 0;
@@ -168,3 +171,4 @@
 #X connect 74 0 48 0;
 #X connect 75 0 4 0;
 #X connect 76 0 39 0;
+#X connect 78 0 77 0;
