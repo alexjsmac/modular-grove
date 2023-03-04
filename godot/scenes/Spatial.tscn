@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://addons/godot-xr-tools/functions/function_pointer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/meshes/interactables/push_button.tscn" type="PackedScene" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://assets/images/sky.png" type="Texture" id=19]
 [ext_resource path="res://assets/images/foliage.png" type="Texture" id=20]
 [ext_resource path="res://assets/images/ground_n.png" type="Texture" id=21]
+[ext_resource path="res://assets/scripts/push_button.gd" type="Script" id=22]
 
 [sub_resource type="GradientTexture" id=22]
 
@@ -159,6 +160,7 @@ omni_range = 15.0
 
 [node name="PushButton" parent="." instance=ExtResource( 2 )]
 transform = Transform( 2.30225, 0, 0, 0, 1, 0, 0, 0, 2.43401, 1.26609, 0.827487, 1.26992 )
+script = ExtResource( 22 )
 
 [node name="XRToolsInteractableAreaButton" type="Area" parent="PushButton"]
 visible = false
@@ -171,6 +173,6 @@ button = NodePath("..")
 transform = Transform( 0.0392859, 0, 0, 0, 0.0177616, 0, 0, 0, 0.0408502, 0, 0.0378689, 0 )
 shape = SubResource( 23 )
 
-[connection signal="button_pressed" from="PushButton/XRToolsInteractableAreaButton" to="." method="_on_XRToolsInteractableAreaButton_button_pressed"]
+[connection signal="button_pressed" from="PushButton/XRToolsInteractableAreaButton" to="PushButton" method="_on_XRToolsInteractableAreaButton_button_pressed"]
 
 [editable path="FPController"]

@@ -14,7 +14,3 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
-
-func _on_XRToolsInteractableAreaButton_button_pressed(button):
-	print("BUTTON PRESSED") # Replace with function body.
