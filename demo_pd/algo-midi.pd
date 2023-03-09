@@ -1,4 +1,4 @@
-#N canvas 25 51 918 854 12;
+#N canvas 25 51 1027 854 12;
 #X obj 224 616 cnv 15 118 17 empty empty empty 20 12 0 14 #fc8000 #404040 0;
 #N canvas 561 960 423 472 control-messages 0;
 #X obj 70 439 outlet;
@@ -300,6 +300,11 @@
 #X obj 741 267 - 0;
 #X obj 20 414 s start;
 #X obj 235 13 r start;
+#X obj 616 336 print slider;
+#X floatatom 667 501 5 0 1e+06 0 - - - 0;
+#X msg 667 525 volume \$1;
+#X text 706 504 db;
+#X obj 591 431 * 300;
 #X connect 1 0 11 4;
 #X connect 2 0 3 0;
 #X connect 3 0 11 1;
@@ -357,6 +362,7 @@
 #X connect 45 0 46 0;
 #X connect 46 0 42 0;
 #X connect 47 0 101 0;
+#X connect 47 1 107 0;
 #X connect 48 0 60 0;
 #X connect 50 0 60 4;
 #X connect 51 0 52 0;
@@ -423,3 +429,6 @@
 #X connect 99 0 53 0;
 #X connect 100 0 90 0;
 #X connect 102 0 18 0;
+#X connect 104 0 105 0;
+#X connect 105 0 61 8;
+#X connect 107 0 104 0;
