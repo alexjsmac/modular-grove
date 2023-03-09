@@ -21,6 +21,7 @@ func _exit_tree ( ):
 	oscsndr.stop()							# disable the sender, highly recommended!
 
 func _on_XRToolsInteractableAreaButton_button_pressed(button):
+	print("BUTTON PRESSED")
 #	var fire = get_node( "../campfire")
 #	if fire.scale < Vector3(2,2,2):
 #		fire.scale *= 1.4

@@ -1,15 +1,15 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=33 format=2]
 
-[ext_resource path="res://addons/godot-xr-tools/functions/function_pointer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/meshes/interactables/push_button.tscn" type="PackedScene" id=2]
-[ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=3]
-[ext_resource path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_fullglove_physics_hand.tscn" type="PackedScene" id=4]
+[ext_resource path="res://addons/godot-xr-tools/functions/function_pickup.tscn" type="PackedScene" id=3]
+[ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_physics_hand_low.tscn" type="PackedScene" id=4]
 [ext_resource path="res://addons/godot-xr-tools/functions/movement_turn.tscn" type="PackedScene" id=5]
-[ext_resource path="res://addons/godot-xr-tools/player/player_body.tscn" type="PackedScene" id=6]
-[ext_resource path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" type="PackedScene" id=7]
-[ext_resource path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_fullglove_physics_hand.tscn" type="PackedScene" id=8]
+[ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_physics_hand_low.tscn" type="PackedScene" id=6]
+[ext_resource path="res://addons/godot-xr-tools/functions/movement_direct.tscn" type="PackedScene" id=7]
+[ext_resource path="res://addons/godot-xr-tools/functions/function_pose_detector.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/campfire.tscn" type="PackedScene" id=9]
-[ext_resource path="res://addons/godot-xr-tools/functions/movement_direct.tscn" type="PackedScene" id=10]
+[ext_resource path="res://addons/godot-xr-tools/player/player_body.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/meshes/table/table.tscn" type="PackedScene" id=11]
 [ext_resource path="res://addons/godot-xr-tools/interactables/interactable_area_button.gd" type="Script" id=12]
 [ext_resource path="res://assets/scripts/osc_sender.gd" type="Script" id=13]
@@ -21,20 +21,7 @@
 [ext_resource path="res://assets/images/sky.png" type="Texture" id=19]
 [ext_resource path="res://assets/images/foliage.png" type="Texture" id=20]
 [ext_resource path="res://assets/images/ground_n.png" type="Texture" id=21]
-[ext_resource path="res://assets/scripts/push_button.gd" type="Script" id=22]
 [ext_resource path="res://assets/meshes/interactables/slider_smooth.tscn" type="PackedScene" id=23]
-
-[sub_resource type="GradientTexture" id=22]
-
-[sub_resource type="SpatialMaterial" id=21]
-albedo_texture = ExtResource( 20 )
-metallic = 0.83
-metallic_texture = SubResource( 22 )
-
-[sub_resource type="CubeMesh" id=7]
-material = SubResource( 21 )
-
-[sub_resource type="SpatialMaterial" id=15]
 
 [sub_resource type="PanoramaSky" id=19]
 panorama = ExtResource( 19 )
@@ -63,54 +50,27 @@ size = Vector2( 100, 100 )
 [sub_resource type="ConcavePolygonShape" id=18]
 data = PoolVector3Array( 50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50 )
 
+[sub_resource type="GradientTexture" id=22]
+
+[sub_resource type="SpatialMaterial" id=21]
+albedo_texture = ExtResource( 20 )
+metallic = 0.83
+metallic_texture = SubResource( 22 )
+
+[sub_resource type="CubeMesh" id=7]
+material = SubResource( 21 )
+
+[sub_resource type="SpatialMaterial" id=15]
+
 [sub_resource type="CylinderShape" id=23]
+height = 0.548994
+radius = 0.311008
 
 [node name="Main" type="Spatial"]
 script = ExtResource( 14 )
 
-[node name="FPController" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.0702788, 0, -0.997527, 0, 1, 0, 0.997527, 0, 0.0702788, -9.33484, 1.40897, 0 )
-
-[node name="ARVRCamera" parent="FPController" index="1"]
-far = 1000.0
-
-[node name="VRCommonShaderCache" parent="FPController/ARVRCamera" index="0" instance=ExtResource( 7 )]
-
-[node name="LeftPhysicsHand" parent="FPController/LeftHandController" index="0" instance=ExtResource( 4 )]
-collision_layer = 163840
-
-[node name="MovementDirect" parent="FPController/LeftHandController" index="1" instance=ExtResource( 10 )]
-enabled = true
-order = 10
-max_speed = 2.0
-strafe = false
-
-[node name="Table" parent="FPController/LeftHandController/MovementDirect" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9092, 1.19209e-07, 1.5136 )
-
-[node name="MovementTurn" parent="FPController/RightHandController" index="0" instance=ExtResource( 5 )]
-
-[node name="RightPhysicsHand" parent="FPController/RightHandController" index="1" instance=ExtResource( 8 )]
-collision_layer = 163840
-
-[node name="FunctionPointer" parent="FPController/RightHandController" index="2" instance=ExtResource( 1 )]
-enabled = false
-
-[node name="PlayerBody" parent="FPController" instance=ExtResource( 6 )]
-
-[node name="SpotLight" type="SpotLight" parent="FPController"]
-spot_range = 15.0
-spot_angle = 30.0
-
-[node name="cube" type="MeshInstance" parent="."]
-transform = Transform( -0.538638, -0.674302, -0.505159, 0.842537, -0.431085, -0.322951, 0, -0.599568, 0.800323, 3.15914, 0.638065, -5.41299 )
-mesh = SubResource( 7 )
-material/0 = SubResource( 15 )
-
-[node name="cube2" type="MeshInstance" parent="."]
-transform = Transform( -0.538638, -0.674302, -0.505159, 0.842537, -0.431085, -0.322951, 0, -0.599568, 0.800323, 3.15914, 0.638065, -5.41299 )
-mesh = SubResource( 7 )
-material/0 = SubResource( 15 )
+[node name="env" type="WorldEnvironment" parent="."]
+environment = SubResource( 20 )
 
 [node name="osc_sender" type="Spatial" parent="."]
 script = ExtResource( 13 )
@@ -118,8 +78,54 @@ script = ExtResource( 13 )
 [node name="osc_receiver" type="Spatial" parent="."]
 script = ExtResource( 15 )
 
-[node name="env" type="WorldEnvironment" parent="."]
-environment = SubResource( 20 )
+[node name="FPController" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.0164751, 0, -0.999864, 0, 1, 0, 0.999864, 0, 0.0164751, -10.1696, 0, 0 )
+
+[node name="ARVRCamera" parent="FPController" index="1"]
+fov = 70.0
+far = 1000.0
+
+[node name="LeftHandController" parent="FPController" index="2"]
+visible = true
+
+[node name="LeftPhysicsHand" parent="FPController/LeftHandController" index="0" instance=ExtResource( 6 )]
+collision_layer = 163840
+
+[node name="FunctionPoseDetector" parent="FPController/LeftHandController" index="1" instance=ExtResource( 8 )]
+
+[node name="MovementDirect" parent="FPController/LeftHandController" index="2" instance=ExtResource( 7 )]
+enabled = true
+order = 10
+max_speed = 1.0
+strafe = false
+
+[node name="FunctionPickup" parent="FPController/LeftHandController" index="3" instance=ExtResource( 3 )]
+
+[node name="RightHandController" parent="FPController" index="3"]
+visible = true
+
+[node name="RightPhysicsHand" parent="FPController/RightHandController" index="0" instance=ExtResource( 4 )]
+collision_layer = 163840
+
+[node name="FunctionPoseDetector" parent="FPController/RightHandController" index="1" instance=ExtResource( 8 )]
+
+[node name="MovementDirect" parent="FPController/RightHandController" index="2" instance=ExtResource( 7 )]
+enabled = true
+order = 10
+max_speed = 1.0
+strafe = false
+
+[node name="MovementTurn" parent="FPController/RightHandController" index="3" instance=ExtResource( 5 )]
+
+[node name="FunctionPickup" parent="FPController/RightHandController" index="4" instance=ExtResource( 3 )]
+
+[node name="PlayerBody" parent="FPController" instance=ExtResource( 10 )]
+collision_mask = 1019
+player_height_min = 1.0
+eye_forward_offset = 0.053
+
+[node name="OmniLight" type="OmniLight" parent="FPController"]
+light_energy = 0.5
 
 [node name="Ground" type="MeshInstance" parent="."]
 mesh = SubResource( 17 )
@@ -134,7 +140,7 @@ mesh_library = ExtResource( 17 )
 cell_size = Vector3( 1, 2, 1 )
 cell_center_y = false
 data = {
-"cells": PoolIntArray( 23, 0, 0, 65514, 1, 0, 20, 2, 0, 65511, 4, 0, 23, 6, 0, 65514, 6, 0, 9, 7, 0, 19, 7, 0, 65528, 7, 0, 22, 10, 0, 65512, 10, 0, 65516, 11, 0, 18, 12, 0, 65516, 15, 0, 65520, 15, 0, 15, 16, 0, 19, 16, 0, 10, 18, 0, 65520, 19, 0, 65524, 19, 0, 5, 20, 0, 14, 20, 0, 65529, 21, 0, 65535, 21, 0, 8, 22, 0, 3, 23, 0, 65525, 23, 0, 65532, 24, 0, 65533, 65511, 0, 2, 65512, 0, 9, 65512, 0, 65523, 65513, 0, 65528, 65513, 0, 5, 65515, 0, 14, 65515, 0, 0, 65516, 0, 5, 65516, 0, 65531, 65516, 0, 10, 65517, 0, 65526, 65517, 0, 19, 65518, 0, 65518, 65518, 0, 65522, 65518, 0, 15, 65519, 0, 65513, 65522, 0, 65518, 65522, 0, 19, 65523, 0, 65532, 65524, 0, 23, 65525, 0, 65515, 65526, 0, 9, 65527, 0, 20, 65528, 0, 65511, 65528, 0, 23, 65531, 0, 65514, 65531, 0, 65524, 65531, 0, 20, 65533, 0, 65510, 65533, 0 )
+"cells": PoolIntArray( 23, 0, 0, 65514, 1, 0, 20, 2, 0, 10, 4, 0, 65511, 4, 0, 23, 6, 0, 65514, 6, 0, 19, 7, 0, 65528, 7, 0, 65534, 8, 0, 22, 10, 0, 65512, 10, 0, 65516, 11, 0, 18, 12, 0, 65516, 15, 0, 65520, 15, 0, 15, 16, 0, 19, 16, 0, 10, 18, 0, 65520, 19, 0, 65524, 19, 0, 5, 20, 0, 14, 20, 0, 65529, 21, 0, 65535, 21, 0, 8, 22, 0, 3, 23, 0, 65525, 23, 0, 65532, 24, 0, 65533, 65511, 0, 2, 65512, 0, 9, 65512, 0, 65523, 65513, 0, 65528, 65513, 0, 5, 65515, 0, 14, 65515, 0, 0, 65516, 0, 5, 65516, 0, 65531, 65516, 0, 10, 65517, 0, 65526, 65517, 0, 19, 65518, 0, 65518, 65518, 0, 65522, 65518, 0, 15, 65519, 0, 65513, 65522, 0, 65518, 65522, 0, 19, 65523, 0, 65532, 65524, 0, 23, 65525, 0, 65515, 65526, 0, 9, 65527, 0, 20, 65528, 0, 65511, 65528, 0, 23, 65531, 0, 65514, 65531, 0, 65524, 65531, 0, 20, 65533, 0, 65510, 65533, 0 )
 }
 __meta__ = {
 "_editor_clip_": 0
@@ -151,6 +157,20 @@ __meta__ = {
 "_editor_clip_": 0
 }
 
+[node name="cube" type="MeshInstance" parent="."]
+transform = Transform( -0.538638, -0.674302, -0.505159, 0.842537, -0.431085, -0.322951, 0, -0.599568, 0.800323, 3.15914, 0.638065, -5.41299 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 15 )
+
+[node name="cube2" type="MeshInstance" parent="."]
+transform = Transform( -0.538638, -0.674302, -0.505159, 0.842537, -0.431085, -0.322951, 0, -0.599568, 0.800323, 3.15914, 0.638065, -5.41299 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 15 )
+
+[node name="Table" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9092, 1.19209e-07, 1.5136 )
+input_ray_pickable = false
+
 [node name="campfire" parent="." instance=ExtResource( 9 )]
 transform = Transform( 0.164325, 0, -0.986406, 0, 1, 0, 0.986406, 0, 0.164325, 3.39123, -4.76837e-07, -0.263219 )
 
@@ -159,21 +179,6 @@ transform = Transform( -0.538638, -0.674302, -0.505159, 0.842537, -0.431085, -0.
 light_color = Color( 0.984314, 0.701961, 0, 1 )
 omni_range = 15.0
 
-[node name="PushButton" parent="." instance=ExtResource( 2 )]
-transform = Transform( 2.30225, 0, 0, 0, 1, 0, 0, 0, 2.43401, 1.26609, 0.827487, 1.26992 )
-script = ExtResource( 22 )
-
-[node name="XRToolsInteractableAreaButton" type="Area" parent="PushButton"]
-visible = false
-collision_layer = 32768
-collision_mask = 32768
-script = ExtResource( 12 )
-button = NodePath("..")
-
-[node name="CollisionShape" type="CollisionShape" parent="PushButton/XRToolsInteractableAreaButton"]
-transform = Transform( 0.0392859, 0, 0, 0, 0.0177616, 0, 0, 0, 0.0408502, 0, 0.0378689, 0 )
-shape = SubResource( 23 )
-
 [node name="SliderSmooth" parent="." instance=ExtResource( 23 )]
 transform = Transform( 2.30225, 0, 0, 0, 1, 0, 0, 0, 2.43401, -3.04301, 1.35505, -5.282 )
 
@@ -181,6 +186,21 @@ transform = Transform( 2.30225, 0, 0, 0, 1, 0, 0, 0, 2.43401, -3.04301, 1.35505,
 transform = Transform( 0.434358, 0, 0, 0, 1, 0, 0, 0, 0.410845, 0, 0, 0 )
 omni_range = 1.995
 
-[connection signal="button_pressed" from="PushButton/XRToolsInteractableAreaButton" to="PushButton" method="_on_XRToolsInteractableAreaButton_button_pressed"]
+[node name="PushButton" parent="." instance=ExtResource( 2 )]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 1.31012, 0.850881, 1.46927 )
+
+[node name="XRToolsInteractableAreaButton" type="Area" parent="PushButton"]
+collision_layer = 32768
+collision_mask = 32768
+script = ExtResource( 12 )
+button = NodePath("..")
+
+[node name="CollisionShape" type="CollisionShape" parent="PushButton/XRToolsInteractableAreaButton"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0 )
+shape = SubResource( 23 )
+
+[connection signal="slider_moved" from="SliderSmooth/SliderOrigin/InteractableSlider" to="osc_sender" method="_on_InteractableSlider_slider_moved"]
+[connection signal="button_pressed" from="PushButton/XRToolsInteractableAreaButton" to="osc_sender" method="_on_XRToolsInteractableAreaButton_button_pressed"]
 
 [editable path="FPController"]
+[editable path="SliderSmooth"]

@@ -1,3 +1,4 @@
+tool
 class_name XRToolsFunctionPoseDetector, "res://addons/godot-xr-tools/editor/icons/hand.svg"
 extends Spatial
 
@@ -8,8 +9,12 @@ extends Spatial
 ## of the VR hands.
 
 
+# Default pose detector collision mask of 22:pose-area
+const DEFAULT_MASK := 0b0000_0000_0010_0000_0000_0000_0000_0000
+
+
 ## Collision mask to detect hand pose areas
-export (int, LAYERS_3D_PHYSICS) var collision_mask : int = 1 << 21 setget set_collision_mask
+export (int, LAYERS_3D_PHYSICS) var collision_mask : int = DEFAULT_MASK setget set_collision_mask
 
 
 ## Hand controller
