@@ -29,3 +29,11 @@ for your alternative OS.
     - Check Pd's console, there should be no errors there
 - Back in the VR environment, click the button on the table to begin!
 - You should be hearing sound now and the cubes should begin moving
+
+## Helpful Resources
+I couldn't have put this project together without these great community contributions:
+- [Godot campfire scene tutorial](https://www.youtube.com/watch?v=x4xS3N2GF-Q&ab_channel=DevLogLogan)
+- [Godot plugin for OSC](https://gitlab.com/frankiezafe/gdosc)
+- [Pd DIY library](https://forum.pdpatchrepo.info/topic/1877/diy2-effects-sample-players-synths-and-sound-synthesis)
+- [Pd patch to model Music Thing Modular's Turing Machine](https://github.com/Elektromatic/turingTest0Coast)
+- [Pd patches for multichannel mixing](https://github.com/solipd/AudioLab)
