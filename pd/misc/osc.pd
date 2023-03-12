@@ -1,4 +1,4 @@
-#N canvas 477 20 1369 476 10;
+#N canvas 613 622 1369 476 10;
 #X obj 133 42 bng 50 250 50 0 empty empty start 53 7 0 10 #00fc04 #000000 #000000;
 #X obj 123 322 r oscmsg;
 #X obj 123 344 packOSC;
@@ -79,14 +79,16 @@
 #X obj 133 455 r init;
 #X obj 52 618 outlet;
 #X msg 385 64 4;
-#X obj 197 618 outlet;
+#X obj 140 622 outlet;
 #X msg 133 477 listen 12000;
 #X obj 133 501 netreceive -u -b;
 #X obj 133 524 oscparse;
 #X obj 133 546 list trim;
-#X obj 197 589 route slider;
+#X obj 140 593 route slider;
 #X obj 52 594 route button;
 #X obj 1179 81 inlet;
+#X obj 231 594 route fm;
+#X obj 231 615 outlet;
 #X connect 0 0 38 0;
 #X connect 1 0 2 0;
 #X connect 2 0 3 0;
@@ -183,6 +185,8 @@
 #X connect 83 0 84 0;
 #X connect 84 0 85 0;
 #X connect 84 0 86 0;
+#X connect 84 0 88 0;
 #X connect 85 0 80 0;
 #X connect 86 0 78 0;
 #X connect 87 0 46 0;
+#X connect 88 0 89 0;

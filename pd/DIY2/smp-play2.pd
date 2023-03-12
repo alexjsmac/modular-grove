@@ -1,4 +1,4 @@
-#N canvas 34 37 746 669 10;
+#N canvas 34 37 1501 1197 10;
 #X obj 389 176 soundfiler;
 #X obj 388 123 pack s f;
 #X obj 472 66 f \$0;
@@ -15,11 +15,9 @@
 #X obj 510 190 table \$0-sampleL;
 #X obj 511 209 table \$0-sampleR;
 #X obj 250 415 t b f;
-#X obj 56 102 hsl 100 13 0 1 0 0 \$0-duration \$0-duration-r duration
-105 7 0 12 -262144 -1 -33289 9900 1;
-#X obj 54 66 bng 15 250 50 0 \$0-load uyuyuyttttvvv load 18 8 0 14
--262144 -1 -1;
-#X symbolatom 53 83 33 0 0 0 - #0-filename-r #0-filename;
+#X obj 56 102 hsl 100 13 0 1 0 0 \$0-duration \$0-duration-r duration 105 7 0 12 #fcfcfc #000000 #202020 0 1;
+#X obj 54 66 bng 15 250 50 0 \$0-load uyuyuyttttvvv load 18 8 0 14 #fcfcfc #000000 #000000;
+#X symbolatom 53 83 33 0 0 0 - \$0-filename-r \$0-filename 0;
 #X obj 423 406 loadbang;
 #X obj 461 482 s \$0-duration-r;
 #X obj 372 35 r \$0-load;
@@ -32,8 +30,7 @@
 #X obj 251 302 808_state \$1/duration;
 #X obj 249 279 r \$0-duration;
 #X obj 251 325 s \$0-duration-r;
-#X floatatom 108 65 8 0 0 1 sec #0-timesec ytiuyretiuytreiuyteriurrrrr
-;
+#X floatatom 108 65 8 0 0 1 sec \$0-timesec ytiuyretiuytreiuyteriurrrrr 0;
 #X obj 74 343 r \$0-durational;
 #X obj 27 240 r \$0-pos;
 #X obj 28 326 *;
@@ -51,8 +48,7 @@
 #X obj 161 517 tabplay~ \$0-sampleR;
 #X msg 30 480 \$1 \$2;
 #X obj 30 457 pack 0 0;
-#X obj 184 67 hsl 60 11 0 1 0 0 \$0-gain \$0-gain-r gain 2 5 0 10 -262144
--1 -1 2944 1;
+#X obj 184 67 hsl 60 11 0 1 0 0 \$0-gain \$0-gain-r gain 2 5 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 392 276 r \$0-gain;
 #X obj 392 299 808_state \$1/gain;
 #X obj 392 322 s \$0-gain-r;
@@ -130,6 +126,7 @@
 #X connect 4 0 1 0;
 #X connect 6 1 2 0;
 #X restore 381 93 pd change-symbol;
+#X obj 277 549 outlet;
 #X connect 0 0 5 0;
 #X connect 1 0 12 0;
 #X connect 2 0 1 1;
@@ -165,6 +162,7 @@
 #X connect 42 0 20 0;
 #X connect 45 0 54 0;
 #X connect 46 0 55 0;
+#X connect 46 1 74 0;
 #X connect 47 0 45 0;
 #X connect 47 0 46 0;
 #X connect 48 0 47 0;
