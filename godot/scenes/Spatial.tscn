@@ -169,55 +169,60 @@ transform = Transform( -0.538638, -0.674302, -0.505159, 0.842537, -0.431085, -0.
 mesh = SubResource( 7 )
 material/0 = SubResource( 15 )
 
-[node name="Table" parent="." instance=ExtResource( 11 )]
-transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 1, 0.434351, 1.19209e-07, 1.48875 )
-input_ray_pickable = false
-
 [node name="campfire" parent="." instance=ExtResource( 9 )]
-transform = Transform( 0.164325, 0, -0.986406, 0, 1, 0, 0.986406, 0, 0.164325, 3.39123, -4.76837e-07, -0.263219 )
+transform = Transform( 0.149794, -0.0296593, -0.988272, 0, 0.99955, -0.0299977, 0.988717, 0.00449348, 0.149727, 3.39123, -4.76837e-07, -0.263219 )
 
 [node name="OmniLight" type="OmniLight" parent="campfire"]
 transform = Transform( -0.538638, -0.674303, -0.505159, 0.842537, -0.431085, -0.32295, 7.45058e-09, -0.599568, 0.800324, -0.00615975, 1.50895, -0.0657406 )
 light_color = Color( 0.984314, 0.701961, 0, 1 )
 omni_range = 4.189
 
-[node name="Mound" parent="." instance=ExtResource( 24 )]
-transform = Transform( 4.71559e-05, 0, -0.0391511, 0, 0.4, 0, 0.141187, 0, 2.60385e-05, -1.53776, -1.19209e-07, -5.29728 )
+[node name="Table" parent="." instance=ExtResource( 11 )]
+transform = Transform( 0.460419, 0, 0, 0, 1, 0, 0, 0, 1, -5.19092, 1.19209e-07, -0.0434724 )
+input_ray_pickable = false
 
-[node name="SliderSmooth" parent="." instance=ExtResource( 23 )]
-transform = Transform( 2.30225, 0, 0, 0, 1, 0, 0, 0, 2.43401, -1.54965, 1.11278, -5.29515 )
+[node name="Label3D" type="Label3D" parent="Table"]
+transform = Transform( -4.37205e-08, 0, -2.17184, 0, 1, 0, 1.00021, 0, -9.49342e-08, 0.158686, 0.936671, 0.000478864 )
+pixel_size = 0.0128
+text = "BEGIN"
 
-[node name="MeshInstance" parent="SliderSmooth/Frame" index="1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.58071, 0, 0, 0 )
+[node name="PushButton" parent="Table" instance=ExtResource( 2 )]
+transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 3, -0.407299, 0.850881, -0.01948 )
 
-[node name="InteractableSlider" parent="SliderSmooth/SliderOrigin" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-slider_position = 0.0
-default_position = 0.0
-
-[node name="OmniLight" type="OmniLight" parent="SliderSmooth"]
-transform = Transform( 0.434358, 0, 0, 0, 1, 0, 0, 0, 0.410845, 0, 0.356484, 0.114627 )
-light_color = Color( 0.87451, 0.870588, 0.054902, 1 )
-omni_range = 2.5
-
-[node name="PushButton" parent="SliderSmooth" instance=ExtResource( 2 )]
-transform = Transform( -1.00432e-07, -0.438958, 0, 2.29762, -1.91874e-08, 0, 0, 0, 1, -0.11108, -0.111914, 0.00124264 )
-
-[node name="PushButton" parent="." instance=ExtResource( 2 )]
-transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 0.427233, 0.850881, 1.46927 )
-
-[node name="XRToolsInteractableAreaButton" type="Area" parent="PushButton"]
+[node name="XRToolsInteractableAreaButton" type="Area" parent="Table/PushButton"]
 collision_layer = 32768
 collision_mask = 32768
 script = ExtResource( 12 )
 button = NodePath("..")
 
-[node name="CollisionShape" type="CollisionShape" parent="PushButton/XRToolsInteractableAreaButton"]
+[node name="CollisionShape" type="CollisionShape" parent="Table/PushButton/XRToolsInteractableAreaButton"]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0 )
 shape = SubResource( 23 )
 
+[node name="Mound" parent="." instance=ExtResource( 24 )]
+transform = Transform( 4.71559e-05, 0, -0.0391511, 0, 0.4, 0, 0.141187, 0, 2.60385e-05, 0.321144, -1.19209e-07, -9.43015 )
+
+[node name="SliderSmooth" parent="Mound" instance=ExtResource( 23 )]
+transform = Transform( 0.010845, 0, 17.2396, 0, 2.5, 0, -58.8042, 0, 0.0207644, 0.0150299, 2.78195, 0.303711 )
+
+[node name="MeshInstance" parent="Mound/SliderSmooth/Frame" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.58071, 0, 0, 0 )
+
+[node name="InteractableSlider" parent="Mound/SliderSmooth/SliderOrigin" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+slider_position = 0.0
+default_position = 0.0
+
+[node name="OmniLight" type="OmniLight" parent="Mound/SliderSmooth"]
+transform = Transform( 0.434358, 0, 0, 0, 1, 0, 0, 0, 0.410845, 0, 0.356484, 0.114627 )
+light_color = Color( 0.87451, 0.870588, 0.054902, 1 )
+omni_range = 2.5
+
+[node name="PushButton" parent="Mound/SliderSmooth" instance=ExtResource( 2 )]
+transform = Transform( -1.00432e-07, -0.438958, 0, 2.29762, -1.91874e-08, 0, 0, 0, 1, -0.11108, -0.111914, 0.00124264 )
+
 [node name="WheelSmooth" parent="." instance=ExtResource( 22 )]
-transform = Transform( -0.000706909, 1.5, 6.55671e-08, -5.72181e-12, -6.55671e-08, 1.5, 1.5, 0.000706909, 3.66218e-11, -7.16598, 1.14054, 0.0600786 )
+transform = Transform( -0.000706909, 1.5, 6.55671e-08, -5.72181e-12, -6.55671e-08, 1.5, 1.5, 0.000706909, 3.66218e-11, 4.37757, 1.14054, 7.8869 )
 
 [node name="InteractableHinge" parent="WheelSmooth/HingeOrigin" index="0"]
 hinge_limit_min = 0.0
@@ -230,13 +235,14 @@ omni_range = 3.0
 [node name="PushButton" parent="WheelSmooth" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.00510429, -0.00104046, 0.0112297 )
 
-[connection signal="slider_moved" from="SliderSmooth/SliderOrigin/InteractableSlider" to="osc_sender" method="_on_InteractableSlider_slider_moved"]
-[connection signal="button_pressed" from="SliderSmooth/PushButton/InteractableAreaButton" to="osc_sender" method="_on_InteractableAreaButton_button_pressed"]
-[connection signal="button_pressed" from="PushButton/XRToolsInteractableAreaButton" to="osc_sender" method="_on_XRToolsInteractableAreaButton_button_pressed"]
+[connection signal="button_pressed" from="Table/PushButton/XRToolsInteractableAreaButton" to="osc_sender" method="_on_XRToolsInteractableAreaButton_button_pressed"]
+[connection signal="slider_moved" from="Mound/SliderSmooth/SliderOrigin/InteractableSlider" to="osc_sender" method="_on_InteractableSlider_slider_moved"]
+[connection signal="button_pressed" from="Mound/SliderSmooth/PushButton/InteractableAreaButton" to="osc_sender" method="_on_InteractableAreaButton_button_pressed"]
 [connection signal="hinge_moved" from="WheelSmooth/HingeOrigin/InteractableHinge" to="osc_sender" method="_on_InteractableHinge_hinge_moved"]
+[connection signal="button_pressed" from="WheelSmooth/PushButton/InteractableAreaButton" to="osc_sender" method="_on_InteractableAreaButton_button_pressed"]
 
 [editable path="FPController"]
-[editable path="SliderSmooth"]
-[editable path="SliderSmooth/PushButton"]
+[editable path="Mound/SliderSmooth"]
+[editable path="Mound/SliderSmooth/PushButton"]
 [editable path="WheelSmooth"]
 [editable path="WheelSmooth/PushButton"]

@@ -4,11 +4,13 @@ var oscsndr
 var cube
 var cube2
 var fire_light
+var campfire
 
 func _ready():
 	cube = get_node("../cube")
 	cube2 = get_node("../cube2")
 	fire_light = get_node("../campfire/OmniLight")
+	campfire = get_node("../campfire")
 	oscsndr = load("res://addons/gdosc/gdoscsender.gdns").new()
 	oscsndr.setup( "127.0.0.1", 12000 )
 	oscsndr.start()
@@ -35,11 +37,13 @@ func _on_InteractableSlider_slider_moved(position):
 func _on_InteractableAreaButton_button_pressed(button):
 	print("BUTTON PRESSED")
 	oscsndr.msg("/fm")
+	oscsndr.msg("/lfo")
 	oscsndr.send()
 
 
 func _on_InteractableHinge_hinge_moved(angle):
 	print(angle)
+	campfire.rotation = Vector3(0, angle, 0)
 	oscsndr.msg("/wheel")
 	oscsndr.add(angle)
 	oscsndr.send()
