@@ -1,4 +1,4 @@
-#N canvas 1146 152 1901 1474 12;
+#N canvas 970 269 1901 1474 12;
 #X declare -path turing;
 #X declare -path mix;
 #X declare -path fmdrone;
@@ -349,6 +349,8 @@
 #X obj -125 483 eee-adsr;
 #X obj 246 440 mtof;
 #X msg -73 723 0 \$1;
+#X obj 1098 32 loadbang;
+#X msg 1282 97 80;
 #X connect 1 0 11 4;
 #X connect 2 0 3 0;
 #X connect 3 0 11 1;
@@ -523,3 +525,6 @@
 #X connect 145 0 118 0;
 #X connect 145 0 127 0;
 #X connect 146 0 118 1;
+#X connect 147 0 136 0;
+#X connect 147 0 148 0;
+#X connect 148 0 133 0;
