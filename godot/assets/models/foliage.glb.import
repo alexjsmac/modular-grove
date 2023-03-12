@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/foliage.glb-e479abf031a4f1e47ccab8c9d2f3dbcb.scn"
+path="res://.import/foliage.glb-d2050ffeeee00dd99c4b2dbc5867fc93.scn"
 
 [deps]
 
-source_file="res://assets/Models/foliage.glb"
-dest_files=[ "res://.import/foliage.glb-e479abf031a4f1e47ccab8c9d2f3dbcb.scn" ]
+source_file="res://assets/models/foliage.glb"
+dest_files=[ "res://.import/foliage.glb-d2050ffeeee00dd99c4b2dbc5867fc93.scn" ]
 
 [params]
 
