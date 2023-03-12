@@ -89,6 +89,8 @@
 #X obj 1179 81 inlet;
 #X obj 231 594 route fm;
 #X obj 231 615 outlet;
+#X obj 297 596 route wheel;
+#X obj 297 617 outlet;
 #X connect 0 0 38 0;
 #X connect 1 0 2 0;
 #X connect 2 0 3 0;
@@ -186,7 +188,9 @@
 #X connect 84 0 85 0;
 #X connect 84 0 86 0;
 #X connect 84 0 88 0;
+#X connect 84 0 90 0;
 #X connect 85 0 80 0;
 #X connect 86 0 78 0;
 #X connect 87 0 46 0;
 #X connect 88 0 89 0;
+#X connect 90 0 91 0;

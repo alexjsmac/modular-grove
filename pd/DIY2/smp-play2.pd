@@ -124,12 +124,11 @@
 #X restore 381 93 pd change-symbol;
 #X obj 277 549 outlet;
 #X msg 388 146 read -resize \$1 \$2-sampleL \$2-sampleR;
-#X msg 287 70 symbol ../samples/campfire-ambience.wav;
+#X obj 296 54 inlet;
 #X connect 0 0 4 0;
 #X connect 1 0 71 0;
 #X connect 2 0 1 1;
 #X connect 3 0 2 0;
-#X connect 3 0 72 0;
 #X connect 6 0 9 0;
 #X connect 7 0 6 0;
 #X connect 8 0 10 0;
@@ -186,6 +185,6 @@
 #X connect 67 0 68 0;
 #X connect 69 0 1 0;
 #X connect 71 0 0 0;
-#X connect 72 0 69 0;
 #X connect 72 0 23 1;
+#X connect 72 0 69 0;
 #X coords 0 -1 1 1 210 70 1 50 50;

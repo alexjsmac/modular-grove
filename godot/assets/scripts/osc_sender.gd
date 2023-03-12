@@ -36,3 +36,10 @@ func _on_InteractableAreaButton_button_pressed(button):
 	print("BUTTON PRESSED")
 	oscsndr.msg("/fm")
 	oscsndr.send()
+
+
+func _on_InteractableHinge_hinge_moved(angle):
+	print(angle)
+	oscsndr.msg("/wheel")
+	oscsndr.add(angle)
+	oscsndr.send()
